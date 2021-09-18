@@ -1,0 +1,25 @@
+body{
+    font-family: 'Inconsolata';
+    background-color: #FCF7F8;
+    margin: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-width: 650px;
+    text-transform: lowercase;
+}
+
+.info {
+    padding-bottom: 15px;
+}
+
+.csc462, .seng440, .ece470, .battlesnake, .taxcalc {
+    padding-bottom: 5px;
+}
+
+h3, .h3 {
+    margin-bottom: 0px;
+}
+
+p, .p {
+    margin-top: 5px;
+}
