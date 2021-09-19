@@ -1,2 +1,2 @@
 # portfolio
-next.js portfolio website
+minimal portfolio website
