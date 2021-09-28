@@ -1,5 +1,6 @@
 body{
-    font-family: 'Inconsolata';
+    font-family: 'Inconsolata', monospace;
+    background-color: snow;
     color: black;
     background-color: snow;
     margin: auto;
@@ -7,7 +8,13 @@ body{
     padding-bottom: 100px;
     max-width: 650px;
     text-transform: lowercase;
-    @media (min-width: 768px) { body { padding: 5px 30px } }
+}
+
+@media screen and (max-width: 768px) { 
+    body { 
+        padding-left: 20px;
+        padding-right: 20px;
+    } 
 }
 
 .info {
