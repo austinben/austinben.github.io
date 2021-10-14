@@ -2,6 +2,7 @@ body{
     font-family: 'Inconsolata', monospace;
     background-color: snow;
     color: black;
+    background-color: snow;
     margin: auto;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -20,7 +21,7 @@ body{
     padding-bottom: 15px;
 }
 
-.csc462, .seng440, .ece470, .battlesnake, .taxcalc {
+.csc462, .seng440, .ece470, .battlesnake, .taxcalc, .vex {
     padding-bottom: 5px;
 }
 
@@ -35,5 +36,5 @@ p, .p {
 }
 
 .link {
-    color: rgb(204, 0, 136);
+    color: rgb(250, 0, 196);
 }
