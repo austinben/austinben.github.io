@@ -25,8 +25,10 @@ body{
 }
 
 h3, .h3 {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
+
+
 
 p, .p {
     margin-top: 5px;
