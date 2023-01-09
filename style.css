@@ -21,6 +21,14 @@ info, .info {
     padding-bottom: 15px;
 }
 
+images, .images {
+    text-align: center;
+}
+
+img, .img {
+    padding-top: 30px;
+}
+
 .csc462, .seng440, .ece470, .battlesnake, .taxcalc, .vex {
     padding-bottom: 5px;
 }
