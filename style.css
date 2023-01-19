@@ -18,7 +18,7 @@ body{
 }
 
 info, .info {
-    padding-bottom: 15px;
+    padding-bottom: 50px;
 }
 
 images, .images {
@@ -29,7 +29,7 @@ img, .img {
     padding-top: 30px;
 }
 
-.csc462, .seng440, .ece470, .battlesnake, .taxcalc, .vex {
+.csc462, .seng440, .ece470, .battlesnake, .taxcalc, .vex, .seng460 {
     padding-bottom: 5px;
 }
 
