@@ -1,5 +1,19 @@
+@font-face {
+    font-family: 'wynnsansfullset';
+    src: url('wynnsansfullsetRegular.eot');
+    src: url('wynnsansfullsetRegular.eot?#iefix') format('embedded-opentype'),
+        url('wynnsansfullsetRegular.woff2') format('woff2'),
+        url('wynnsansfullsetRegular.woff') format('woff'),
+        url('wynnsansfullsetRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body{
-    font-family: 'Inconsolata', monospace;
+    font-family: 'wynnsansfullset';
+    font-weight: normal;
+    font-style: normal;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 243, 216);
     background-color: #344E41;
@@ -41,20 +55,12 @@ p, .p {
     margin-top: 5px;
 }
 
-link, .link {
-    color: #73aa72;
+footer, .footer {
+    padding-top: 50px;
 }
 
-dot, .dot {
-    height: 25px;
-    width: 25px;
-    background-color: #c997f4;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 20px;
-    padding: 5px;
-    display: grid;
-    min-width: 25px;
+link, .link {
+    color: #73aa72;
 }
 
 header, .header {
