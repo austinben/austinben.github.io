@@ -39,13 +39,13 @@ img, .img {
     padding-top: 30px;
 }
 
-.csc462, .seng440, .ece470, .battlesnake, .taxcalc, .vex, .seng460 {
+.csc462, .seng440, .ece470, .battlesnake, .taxcalc, .vex, .seng460, .irt {
     border-radius: 10px;
     transition: background-color .3s linear;
     padding: 10px 20px;
 }
 
-.csc462:hover, .seng440:hover, .ece470:hover, .battlesnake:hover, .taxcalc:hover, .vex:hover, .seng460:hover {
+.csc462:hover, .seng440:hover, .ece470:hover, .battlesnake:hover, .taxcalc:hover, .vex:hover, .seng460:hover, .irt:hover {
     background-color: #3f5f4f;
 }
 
