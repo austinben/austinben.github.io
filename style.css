@@ -1,10 +1,12 @@
-:root { font-family: 'Inter', sans-serif; }
-@supports (font-variation-settings: normal) {
-  :root { font-family: 'Inter var', sans-serif; }
-}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/Inter-Regular.ttf') format('ttf');
+  }
 
 body{
-    font-family: 'Inter var';
+    font-family: 'Inter', sans-serif;
     font-weight: normal;
     font-style: normal;
     background-color: rgb(0, 0, 0);
