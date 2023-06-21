@@ -25,20 +25,20 @@ body{
     }
 }
 
+spotify, .spotify {
+    padding: 0px 20px;
+}
+
 info, .info {
-    padding: 20px 20px;
+    padding: 0px 20px;
 }
 
 header, .header {
-    padding: 20px 20px;
+    padding: 0px 20px;
 }
 
 images, .images {
     text-align: center;
-}
-
-img, .img {
-    padding-top: 30px;
 }
 
 .csc462, .seng440, .ece470, .battlesnake, .taxcalc, .vex, .seng460, .irt {
@@ -70,4 +70,23 @@ link, .link {
 header, .header {
     display: flex;
     align-items: center;
+}
+
+.artwork {
+    width: 150px;
+    height: 150px;
+    padding-right: 15px;
+}
+
+.songtitle {
+    font-style: italic;
+}
+
+.songartist {
+    font-style: italic;
+}
+
+.current {
+    display: flex;
+    align-items: top;
 }
