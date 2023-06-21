@@ -25,10 +25,14 @@ function millisToMinutesAndSeconds(millis) {
 function displayArt(data) {
     const imgContainer = document.getElementById('artwork');
     const art = data.cover;
+    const id = data.id;
+    const link=`https://open.spotify.com/track/${id}`
 
-    //outputString = `<img class="artwork" src="${art}">`
-    outputString = `<img class="artwork" src="${art}" onerror="if (this.src != 'error.png') this.src = 'error.png';">`
-
+    if (id === undefined) {
+        outputString = 'nothing, spotfiy is closed right now :('
+    } else {
+        outputString = `<a href="${link}"><img class="artwork" src="${art}" onerror="if (this.src != 'error.png') this.src = 'error.png';"></a>`
+    }
 
     imgContainer.innerHTML = outputString;
 }
@@ -43,8 +47,11 @@ function displaySong(data) {
     const length = millisToMinutesAndSeconds(data.length);
 
     const link=`https://open.spotify.com/track/${id}`
-    
-    const outputString = `<span class="songtitle"><a class="link" href="${link}">${title}</a></span><br><br>by <span class="songartist"><a class="link" href="${link}">${artist}</a></span><br><br>${at} --- ${length}`; // Example string interpolation
 
+    if (id === undefined) {
+        outputString = ''
+    } else {
+        outputString = `<span class="songtitle"><a class="link" href="${link}">${title}</a></span><br><br>by <span class="songartist"><a class="link" href="${link}">${artist}</a></span><br><br>${at} / ${length}`; // Example string interpolation
+    }
     dataContainer.innerHTML = outputString;
 }
