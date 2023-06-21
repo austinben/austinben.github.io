@@ -51,7 +51,7 @@ function displaySong(data) {
     if (id === undefined) {
         outputString = ''
     } else {
-        outputString = `<span class="songtitle"><a class="link" href="${link}">${title}</a></span><br><br>by <span class="songartist"><a class="link" href="${link}">${artist}</a></span><br><br>${at} / ${length}`; // Example string interpolation
+        outputString = `<span class="songtitle"><a class="link" href="${link}">${title}</a></span><br><br>by <span class="songartist"><a class="link" href="${link}">${artist}</a></span>`; // Example string interpolation
     }
     dataContainer.innerHTML = outputString;
 }
