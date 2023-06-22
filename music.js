@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             const elapsedSeconds = Math.floor(at / 1000);
             // Calculate the minutes and seconds
             const elapsedMinutes = Math.floor(elapsedSeconds / 60);
-            const formattedTime = elapsedMinutes.toString().padStart(2, '0') + ':' + (elapsedSeconds % 60).toString().padStart(2, '0') + ' / ' + lengthMin;
+            const formattedTime = elapsedMinutes.toString().padStart(1, '0') + ':' + (elapsedSeconds % 60).toString().padStart(2, '0') + ' / ' + lengthMin;
 
             // Update the HTML element with the elapsed time
             document.getElementById('elapsed').textContent = formattedTime;
