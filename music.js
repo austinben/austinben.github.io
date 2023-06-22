@@ -39,7 +39,7 @@ function displaySong(data) {
     if (id === undefined) {
         outputString = ''
     } else {
-        outputString = `<span class="songtitle"><a class="link" href="${link}">${title}</a></span><br><br>by <span class="songartist"><a class="link" href="${link}">${artist}</a></span><br><br><div id="elapsed"></div>`; // Example string interpolation
+        outputString = `<span class="songtitle"><a class="link" href="${link}">${title}</a></span><br><br>by <span class="songartist"><a class="link" href="${link}">${artist}</a></span><br><br><div id="elapsed"></div><br><div id="pause"></div>`; // Example string interpolation
     }
     dataContainer.innerHTML = outputString;
 }
@@ -48,12 +48,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     function fetchData() {
         return fetch('https://ba-api-eta.vercel.app/song') // Replace with your API endpoint
-        .then(response => response.json())
-        .catch(error => {
-            // Handle any errors that occurred during the request
-            console.error('Error:', error);
-            return error;
-        });
+        .then(response => response.json());
     }
 
         /// Fetch the data and use it within the event listener
@@ -63,11 +58,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let at = data.at; // Replace with the actual property from the API response
         let length = data.length;
         let lengthMin = millisToMinutesAndSeconds(data.length); // Replace with the actual property from the API response
+        let paused = data.paused
+        updateElapsedTime()
 
         
         // Update the elapsed time every second
         function updateElapsedTime() {
-            at += 1000
+
+            if (paused === false) {
+                at += 1000
+            }
+
+            if (paused === true) {
+                document.getElementById('pause').textContent = '[paused]';
+            } else {
+                document.getElementById('pause').textContent = '';
+            }
 
             // Check if the elapsed time has exceeded the length
             if (at >= length) {
@@ -77,22 +83,32 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     at = newData.at;
                     length = newData.length;
                     lengthMin = millisToMinutesAndSeconds(newData.length);
+                    paused = newData.paused;
                     displayArt(newData)
                     displaySong(newData)
                 });
             }
 
-
-            const elapsedSeconds = Math.floor(at / 1000);
-            // Calculate the minutes and seconds
-            const elapsedMinutes = Math.floor(elapsedSeconds / 60);
-            const formattedTime = elapsedMinutes.toString().padStart(1, '0') + ':' + (elapsedSeconds % 60).toString().padStart(2, '0') + ' / ' + lengthMin;
+            let formattedTime = '';
 
             // Update the HTML element with the elapsed time
-            document.getElementById('elapsed').textContent = formattedTime;
+            if (length === undefined) {
+                formattedTime = '';
+            } else {
+                const elapsedSeconds = Math.floor(at / 1000);
+                // Calculate the minutes and seconds
+                const elapsedMinutes = Math.floor(elapsedSeconds / 60);
+                formattedTime = elapsedMinutes.toString().padStart(1, '0') + ':' + (elapsedSeconds % 60).toString().padStart(2, '0') + ' / ' + lengthMin;
             }
 
-        // Call the updateElapsedTime function every second
-        setInterval(updateElapsedTime, 1000);
+            document.getElementById('elapsed').textContent = formattedTime;
+        
+            }
+
+            setInterval(updateElapsedTime, 1000);
+    })
+    .catch(error => {
+        // Handle error from re-fetching data
+        console.log('Error:', error);
     });
   });
