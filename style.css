@@ -25,6 +25,14 @@ body{
     }
 }
 
+@supports(padding: env(safe-area-inset-top)) {
+    /* For devices with notch (iPhone X and newer) */
+    body {
+      padding-top: env(safe-area-inset-top);
+      background-color: #3f5f4f; /* Replace "your-color" with your desired background color */
+    }
+  }
+
 spotify, .spotify {
     padding: 0px 20px;
 }
