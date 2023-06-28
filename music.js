@@ -17,7 +17,7 @@ function displayArt(data) {
     const link=`https://open.spotify.com/track/${id}`
 
     if (id === undefined) {
-        outputString = 'nothing, spotfiy is closed right now, come back later :)'
+        outputString = 'spotify is closed at the moment...'
     } else {
         outputString = `<a href="${link}"><img class="artwork" src="${art}" onerror="if (this.src != 'error.png') this.src = 'error.png';"></a>`
     }
