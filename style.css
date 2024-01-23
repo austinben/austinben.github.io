@@ -25,30 +25,14 @@ body{
     }
 }
 
-spotify, .spotify {
-    padding: 0px 20px;
-}
-
 info, .info {
     padding: 0px 20px;
 }
 
 header, .header {
     padding: 0px 20px;
-}
-
-images, .images {
-    text-align: center;
-}
-
-.csc462, .seng440, .ece470, .battlesnake, .taxcalc, .vex, .seng460, .irt {
-    border-radius: 10px;
-    transition: background-color .3s linear;
-    padding: 10px 20px;
-}
-
-.csc462:hover, .seng440:hover, .ece470:hover, .battlesnake:hover, .taxcalc:hover, .vex:hover, .seng460:hover, .irt:hover {
-    background-color: #3f5f4f;
+    display: flex;
+    align-items: center;
 }
 
 h3, .h3 {
@@ -59,34 +43,6 @@ p, .p {
     margin-top: 5px;
 }
 
-footer, .footer {
-    padding-top: 50px;
-}
-
 link, .link {
     color: #73aa72;
-}
-
-header, .header {
-    display: flex;
-    align-items: center;
-}
-
-.artwork {
-    width: 150px;
-    height: 150px;
-    padding-right: 15px;
-}
-
-.songtitle {
-    font-style: italic;
-}
-
-.songartist {
-    font-style: italic;
-}
-
-.current {
-    display: flex;
-    align-items: top;
 }
