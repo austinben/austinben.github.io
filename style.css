@@ -9,13 +9,13 @@ body{
     font-family: 'Inter', sans-serif;
     font-weight: normal;
     font-style: normal;
-    background-color: rgb(0, 0, 0);
+    background-color: #e6e6e6;
     color: rgb(255, 243, 216);
+
     background-color: #344E41;
     margin: auto;
     padding: 100px 0px;
     max-width: 650px;
-    text-transform: lowercase;
 }
 
 @media screen and (max-width: 768px) { 
