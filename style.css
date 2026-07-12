@@ -36,7 +36,7 @@ body {
     color: var(--fg);
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 /* hairline frame around the viewport, year0001-style */
@@ -45,18 +45,35 @@ body {
     inset: var(--frame);
     border: 1px solid var(--line);
     pointer-events: none;
-    z-index: 0;
+    z-index: 3;
+}
+
+/* scroll happens inside the frame, content never crosses the top/bottom lines */
+.scroll {
+    position: fixed;
+    inset: var(--frame);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: safe center;
 }
 
 .corner {
     position: fixed;
-    z-index: 2;
+    z-index: 4;
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--dim);
     text-decoration: none;
+    background: var(--bg);
+    padding: 6px;
+    margin: -6px;
     transition: color .25s ease;
 }
 
@@ -79,8 +96,9 @@ body {
 
 main {
     max-width: 620px;
+    width: 100%;
     margin: 0 auto;
-    padding: 200px 24px 220px;
+    padding: 64px 24px;
 }
 
 .mark {
@@ -107,10 +125,10 @@ h1 {
 }
 
 p {
+    font-family: 'Archivo', 'Inter', sans-serif;
     font-size: 17px;
-    font-weight: 450;
+    font-weight: 500;
     line-height: 1.6;
-    letter-spacing: 0.003em;
     color: var(--fg);
     margin: 0;
 }
@@ -163,7 +181,7 @@ a.link:hover::before {
     }
 
     main {
-        padding: 120px 20px 80px;
+        padding: 72px 20px;
     }
 
     h1 {
