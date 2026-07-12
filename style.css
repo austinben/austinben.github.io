@@ -56,6 +56,10 @@ body {
     overflow-x: hidden;
     z-index: 1;
     -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: safe center;
 }
 
 .corner {
@@ -92,8 +96,9 @@ body {
 
 main {
     max-width: 620px;
+    width: 100%;
     margin: 0 auto;
-    padding: 200px 24px 220px;
+    padding: 64px 24px;
 }
 
 .mark {
@@ -176,7 +181,7 @@ a.link:hover::before {
     }
 
     main {
-        padding: 120px 20px 80px;
+        padding: 72px 20px;
     }
 
     h1 {
