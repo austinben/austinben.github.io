@@ -5,6 +5,13 @@
     src: url('./fonts/Inter-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 100 900;
+    src: url('./fonts/Archivo-Variable.woff2') format('woff2');
+}
+
 :root {
     --bg: #0a0a0a;
     --fg: #ededed;
@@ -23,12 +30,13 @@ html, body {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Archivo', 'Inter', sans-serif;
     font-weight: 400;
     background-color: var(--bg);
     color: var(--fg);
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* hairline frame around the viewport, year0001-style */
@@ -44,6 +52,7 @@ body {
     position: fixed;
     z-index: 2;
     font-size: 11px;
+    font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--dim);
@@ -82,6 +91,7 @@ main {
 
 .label {
     font-size: 11px;
+    font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--dim);
@@ -91,14 +101,16 @@ main {
 h1 {
     font-size: 40px;
     line-height: 1.15;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.01em;
     margin: 0 0 56px;
 }
 
 p {
     font-size: 17px;
-    line-height: 1.7;
+    font-weight: 450;
+    line-height: 1.6;
+    letter-spacing: 0.003em;
     color: var(--fg);
     margin: 0;
 }
@@ -169,5 +181,76 @@ a.link:hover::before {
     .footer-links a {
         color: var(--dim);
         text-decoration: none;
+    }
+}
+
+/* intro loader */
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: var(--bg);
+    opacity: 1;
+    visibility: visible;
+    animation: loader-out .5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.loader-mark {
+    font-size: 26px;
+    color: var(--dim);
+    animation: loader-spin 1s linear infinite;
+}
+
+.loader-text {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--dim);
+}
+
+.loader-text::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 11px;
+    margin-left: 6px;
+    vertical-align: -1px;
+    background: var(--dim);
+    animation: loader-blink .8s steps(1) infinite;
+}
+
+@keyframes loader-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes loader-blink {
+    50% { opacity: 0; }
+}
+
+@keyframes loader-out {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader {
+        animation: loader-out .01s linear forwards;
+        animation-delay: 0s;
+    }
+
+    .loader-mark {
+        animation: none;
+    }
+
+    .loader-text::after {
+        animation: none;
     }
 }
