@@ -2,73 +2,172 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/Inter-Regular.ttf') format('ttf');
-  }
+    src: url('./fonts/Inter-Regular.ttf') format('truetype');
+}
 
-body{
+:root {
+    --bg: #0a0a0a;
+    --fg: #ededed;
+    --dim: rgba(237, 237, 237, 0.5);
+    --line: rgba(237, 237, 237, 0.16);
+    --accent: #8fb88c;
+    --frame: 28px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
     font-family: 'Inter', sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    background-color: #e6e6e6;
-    color: rgb(255, 243, 216);
-
-    background-color: #344E41;
-    margin: auto;
-    padding: 70px 0px;
-    max-width: 650px;
+    font-weight: 400;
+    background-color: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    padding: 0;
 }
 
-@media screen and (max-width: 768px) { 
-    body { 
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+/* hairline frame around the viewport, year0001-style */
+.frame {
+    position: fixed;
+    inset: var(--frame);
+    border: 1px solid var(--line);
+    pointer-events: none;
+    z-index: 0;
 }
 
-info, .info {
-    padding: 0px 20px;
+.corner {
+    position: fixed;
+    z-index: 2;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dim);
+    text-decoration: none;
+    transition: color .25s ease;
 }
 
-header, .header {
-    padding-left: 20px;
-    padding-bottom: 30px;
-    display: flex;
-    align-items: center;
+.corner:hover {
+    color: var(--accent);
 }
 
-h3, .h3 {
-    margin-bottom: 10px;
+.corner::before {
+    display: none;
 }
 
-p, .p {
-    margin-top: 5px;
+.corner-tl { top: 44px; left: 48px; }
+.corner-tr { top: 44px; right: 48px; }
+.corner-bl { bottom: 44px; left: 48px; }
+.corner-br { bottom: 44px; right: 48px; }
+
+.footer-links {
+    display: none;
 }
 
-/* link, .link {
-    /* color: #73aa72; */
-/* } */
+main {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 200px 24px 220px;
+}
+
+.mark {
+    font-size: 22px;
+    color: var(--dim);
+    margin-bottom: 48px;
+}
+
+.label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 14px;
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin: 0 0 56px;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--fg);
+    margin: 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 40px 0;
+}
 
 a {
-    color: #73aa72;
+    color: var(--accent);
     position: relative;
     text-decoration: none;
 }
 
-a::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  border-radius: 2px;
-  background-color: #73aa72;
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform .3s ease-in-out;
+a.link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: var(--accent);
+    bottom: -1px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
 }
 
-a:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
+a.link:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+@media screen and (max-width: 640px) {
+    :root {
+        --frame: 14px;
+    }
+
+    .corner {
+        font-size: 9px;
+    }
+
+    .corner-tl, .corner-tr { top: 26px; }
+    .corner-tl, .corner-bl { left: 26px; }
+    .corner-tr, .corner-br { right: 26px; }
+
+    .corner-bl, .corner-br {
+        display: none;
+    }
+
+    main {
+        padding: 120px 20px 80px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 56px;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+    }
+
+    .footer-links a {
+        color: var(--dim);
+        text-decoration: none;
+    }
 }
