@@ -14,6 +14,13 @@
     <meta charSet="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0a0a0a" />
+    <script>
+        try {
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        } catch (e) {}
+    </script>
 </head>
 <body>
     <div class="loader" aria-hidden="true">
@@ -21,15 +28,11 @@
         <span class="loader-text">BEN AUSTIN</span>
     </div>
 
-    <div class="frame"></div>
-
-    <a class="corner corner-tl" href="#top">BEN AUSTIN</a>
-    <span class="corner corner-tr">SOFTWARE&nbsp;ENGINEER</span>
-    <a class="corner corner-bl" href="https://www.linkedin.com/in/benjaminaaustin/">LINKEDIN &#8599;</a>
-    <a class="corner corner-br" href="mailto:hello@benaustin.ca">EMAIL &#8599;</a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode"></button>
 
     <div class="scroll">
         <main id="top">
+            <div class="name">BEN AUSTIN</div>
             <div class="mark">&#10037;</div>
 
             <div class="label">01 &mdash; ABOUT</div>
@@ -54,13 +57,35 @@
                 Get in touch at <a class="link" href="mailto:hello@benaustin.ca">hello@benaustin.ca</a>
                 or on <a class="link" href="https://www.linkedin.com/in/benjaminaaustin/">LinkedIn</a>.
             </p>
-
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/benjaminaaustin/">LINKEDIN &#8599;</a>
-                <a href="mailto:hello@benaustin.ca">EMAIL &#8599;</a>
-            </div>
         </main>
     </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+
+            function sync() {
+                var isLight = root.getAttribute('data-theme') === 'light';
+                btn.textContent = isLight ? '☾' : '☀';
+                btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+            }
+
+            btn.addEventListener('click', function () {
+                var isLight = root.getAttribute('data-theme') === 'light';
+                if (isLight) {
+                    root.removeAttribute('data-theme');
+                    try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+                } else {
+                    root.setAttribute('data-theme', 'light');
+                    try { localStorage.setItem('theme', 'light'); } catch (e) {}
+                }
+                sync();
+            });
+
+            sync();
+        })();
+    </script>
 </body>
 
 </html>

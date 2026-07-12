@@ -21,6 +21,14 @@
     --frame: 28px;
 }
 
+:root[data-theme="light"] {
+    --bg: #f5f4f2;
+    --fg: #111111;
+    --dim: rgba(17, 17, 17, 0.55);
+    --line: rgba(17, 17, 17, 0.14);
+    --accent: #3f6b3c;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -37,18 +45,10 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    transition: background-color .3s ease, color .3s ease;
 }
 
-/* hairline frame around the viewport, year0001-style */
-.frame {
-    position: fixed;
-    inset: var(--frame);
-    border: 1px solid var(--line);
-    pointer-events: none;
-    z-index: 3;
-}
-
-/* scroll happens inside the frame, content never crosses the top/bottom lines */
+/* scroll happens inside the viewport, content never crosses the top/bottom edges */
 .scroll {
     position: fixed;
     inset: var(--frame);
@@ -62,36 +62,24 @@ body {
     justify-content: safe center;
 }
 
-.corner {
+.theme-toggle {
     position: fixed;
+    top: 44px;
+    right: 48px;
     z-index: 4;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--dim);
-    text-decoration: none;
     background: var(--bg);
+    border: none;
     padding: 6px;
     margin: -6px;
+    color: var(--dim);
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
     transition: color .25s ease;
 }
 
-.corner:hover {
+.theme-toggle:hover {
     color: var(--accent);
-}
-
-.corner::before {
-    display: none;
-}
-
-.corner-tl { top: 44px; left: 48px; }
-.corner-tr { top: 44px; right: 48px; }
-.corner-bl { bottom: 44px; left: 48px; }
-.corner-br { bottom: 44px; right: 48px; }
-
-.footer-links {
-    display: none;
 }
 
 main {
@@ -99,6 +87,15 @@ main {
     width: 100%;
     margin: 0 auto;
     padding: 64px 24px;
+}
+
+.name {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--dim);
+    margin-bottom: 40px;
 }
 
 .mark {
@@ -168,16 +165,9 @@ a.link:hover::before {
         --frame: 14px;
     }
 
-    .corner {
-        font-size: 9px;
-    }
-
-    .corner-tl, .corner-tr { top: 26px; }
-    .corner-tl, .corner-bl { left: 26px; }
-    .corner-tr, .corner-br { right: 26px; }
-
-    .corner-bl, .corner-br {
-        display: none;
+    .theme-toggle {
+        top: 26px;
+        right: 26px;
     }
 
     main {
@@ -186,19 +176,6 @@ a.link:hover::before {
 
     h1 {
         font-size: 30px;
-    }
-
-    .footer-links {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 56px;
-        font-size: 11px;
-        letter-spacing: 0.16em;
-    }
-
-    .footer-links a {
-        color: var(--dim);
-        text-decoration: none;
     }
 }
 
